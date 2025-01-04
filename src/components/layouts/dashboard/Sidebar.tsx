@@ -34,7 +34,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
   return (
     <>
       <div
-        className={`fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity md:hidden ${
+        className={`fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity xl:hidden ${
           isOpen ? 'opacity-100 z-40' : 'opacity-0 z-[-1]'
         }`}
         onClick={() => setIsOpen(false)}

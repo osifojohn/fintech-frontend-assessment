@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Loan, Transaction, User } from '../../types';
+import { Loan, Transaction, TransactionStats, User } from '../../types';
 
 export const api = createApi({
   reducerPath: 'api',
@@ -9,6 +9,7 @@ export const api = createApi({
   }),
   tagTypes: ['User', 'Transaction', 'Loan'],
   endpoints: (builder) => ({
+    // ... existing endpoints ...
     getUser: builder.query<User, string>({
       query: (id) => `/users/${id}`,
       providesTags: ['User'],
@@ -24,6 +25,12 @@ export const api = createApi({
       providesTags: ['Loan'],
     }),
 
+    // New transaction stats endpoint
+    getTransactionStats: builder.query<TransactionStats, void>({
+      query: () => '/transactionStats',
+      providesTags: ['Transaction'],
+    }),
+
     createLoanRequest: builder.mutation<
       Loan,
       Omit<Loan, 'id' | 'createdAt' | 'updatedAt'>
@@ -33,7 +40,6 @@ export const api = createApi({
         method: 'POST',
         body: loanData,
       }),
-      // Optimistic update
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
           const { data: newLoan } = await queryFulfilled;
@@ -66,6 +72,7 @@ export const {
   useGetUserQuery,
   useGetTransactionsQuery,
   useGetLoanHistoryQuery,
+  useGetTransactionStatsQuery,
   useCreateLoanRequestMutation,
   useCreateTransactionMutation,
 } = api;

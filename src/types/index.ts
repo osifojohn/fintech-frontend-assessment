@@ -31,3 +31,9 @@ export type Loan = {
   createdAt: string;
   updatedAt: string;
 };
+
+export type TransactionStats = {
+  totalIncome: number;
+  totalExpenses: number;
+  netBalance: number;
+};

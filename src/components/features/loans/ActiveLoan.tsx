@@ -1,10 +1,8 @@
 import { format } from 'date-fns';
 import { useGetLoanHistoryQuery } from '../../../redux/api/apiSlice';
 import { AlertCircle } from 'lucide-react';
-
-export const LoadingShimmerBlock = ({ className }: { className: string }) => (
-  <div className={`animate-pulse bg-gray-200 rounded ${className}`} />
-);
+import { LoadingShimmerBlock } from '../../LoadingShimmerBlock';
+import { formatCurrencyToUSD } from '../../../lib/utils';
 
 export const ActiveLoan = () => {
   const {
@@ -70,13 +68,13 @@ export const ActiveLoan = () => {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow p-6 mb-6">
+    <section className="bg-white rounded-lg shadow p-6 mb-6">
       <h2 className="text-xl font-semibold mb-4">Active Loan</h2>
       <div className="grid grid-cols-2 gap-4">
         <div>
           <p className="text-sm text-gray-600">Outstanding Amount</p>
           <p className="text-2xl font-bold">
-            ${activeLoan.amount.toLocaleString()}
+            {formatCurrencyToUSD(activeLoan.amount)}
           </p>
         </div>
         <div>
@@ -94,7 +92,7 @@ export const ActiveLoan = () => {
           <p className="font-medium">{activeLoan.purpose}</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
