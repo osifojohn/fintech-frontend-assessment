@@ -11,7 +11,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
   const location = useLocation();
 
   const navigation = [
-    { name: 'Dashboard', href: 'home', icon: Home },
+    { name: 'Dashboard', href: '', icon: Home },
     { name: 'Loans', href: 'loans', icon: Banknote },
     {
       name: 'Transactions',
@@ -24,6 +24,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
 
   const handleCloseSidebar = () => {
     if (isSmallScreen()) setIsOpen(false);
+  };
+
+  const getCurrentPathSegment = () => {
+    const pathSegments = location.pathname.split('/');
+    return pathSegments[pathSegments.length - 1];
   };
 
   return (
@@ -41,7 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
         }`}
       >
         <div className="flex items-center justify-between h-16 px-4">
-          <span className="text-xl font-semibold">Fintech App</span>
+          <span className="text-xl font-semibold">Fintech John</span>
           <button
             type="button"
             className="md:hidden"
@@ -53,7 +58,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
 
         <nav className="flex-1 px-2 py-4 space-y-1">
           {navigation.map((item) => {
-            const isActive = location.pathname === item.href;
+            const isActive = getCurrentPathSegment().includes(item.href);
             const Icon = item.icon;
             return (
               <Link

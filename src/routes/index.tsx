@@ -5,6 +5,7 @@ import { ROUTES } from '../lib/constants';
 import Transactions from '../pages/dashboard/Transactions';
 import Loans from '../pages/dashboard/Loans';
 import { DashboardLayout } from '../components/layouts/dashboard/DashboardLayout';
+import NotFound from '../pages/NotFound';
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,11 @@ export const router = createBrowserRouter([
       { path: 'home', element: <Dashboard /> },
       { path: 'loans', element: <Loans /> },
       { path: 'transactions', element: <Transactions /> },
+      { path: '*', element: <NotFound /> },
     ],
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]);

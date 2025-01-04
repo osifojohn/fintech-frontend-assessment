@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../lib/constants';
 
 const Landing = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const targetUrl = '/dashboard';
+  const targetUrl = ROUTES.DASHBOARD.ROOT;
   const delay = 2000;
 
   useEffect(() => {
