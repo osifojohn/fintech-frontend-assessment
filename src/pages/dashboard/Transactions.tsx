@@ -4,9 +4,19 @@ import { TransactionStats } from '../../components/features/transactions/Transac
 const Transactions = () => {
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-gray-900">All Transactions</h1>
-      <TransactionStats />
-      <TransactionTable />
+      <div>
+        <h2 className="text-2xl  font-bold text-gray-900 mb-2">
+          Transactions overview
+        </h2>
+        <TransactionStats />
+      </div>
+
+      <div>
+        <h2 className="text-2xl  font-bold text-gray-900 mb-4">
+          All Transactions
+        </h2>
+        <TransactionTable />
+      </div>
     </div>
   );
 };
