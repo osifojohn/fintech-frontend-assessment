@@ -26,6 +26,7 @@
     "react-redux": "^9.2.0",
     "react-router": "^7.1.1",
     "react-router-dom": "^7.1.1",
+    "rollup": "^4.29.1",
     "sonner": "^1.7.1",
     "ts-node": "^10.9.2",
     "yup": "^1.6.1",

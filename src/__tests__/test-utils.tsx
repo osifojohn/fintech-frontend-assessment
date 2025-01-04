@@ -9,7 +9,6 @@ import {
 } from '@reduxjs/toolkit';
 import { api } from '../redux/api/apiSlice';
 
-// Create a root reducer separately to help with type inference
 const rootReducer = combineReducers({
   [api.reducerPath]: api.reducer as Reducer,
 });
@@ -26,7 +25,6 @@ export function setupStore(preloadedState?: Partial<RootState>) {
   });
 }
 
-// Infer the RootState and AppDispatch types from the store itself
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppDispatch = StoreType['dispatch'];
 
