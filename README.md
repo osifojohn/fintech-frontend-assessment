@@ -86,7 +86,7 @@ src/
 1. Clone the repository:
 
 ```bash
-git clone [https://github.com/osifojohn/fintech-frontend-assessment.git]
+git clone https://github.com/osifojohn/fintech-frontend-assessment.git
 cd fintech-frontend-assessment
 ```
 
