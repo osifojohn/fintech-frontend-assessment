@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1736068042681" clover="3.2.0">
-  <project timestamp="1736068042681" name="All files">
+<coverage generated="1736074945690" clover="3.2.0">
+  <project timestamp="1736074945690" name="All files">
     <metrics statements="300" coveredstatements="131" conditionals="128" coveredconditionals="66" methods="81" coveredmethods="32" elements="509" coveredelements="229" complexity="0" loc="300" ncloc="300" packages="14" files="24" classes="24"/>
     <package name="src">
       <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -356,18 +356,18 @@
         <line num="2" count="0" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.providers">
       <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="store.provider.tsx" path="C:\Users\user\Desktop\moved-folder-old\personal-projects\assessment\simbrella-assessment\fintech-frontend-assessment\src\providers\store.provider.tsx">
         <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="3" count="0" type="stmt"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.redux">

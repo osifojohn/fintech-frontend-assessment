@@ -6,9 +6,9 @@ const Loans = () => {
   return (
     <>
       <div className="space-y-6">
-        <div className="flex justify-between items-center mb-14">
-          <h1 className="text-2xl font-bold text-gray-900">Loan Management</h1>
-        </div>
+        <h1 className="text-2xl mb-14 font-bold text-gray-900">
+          Loan Management
+        </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="space-y-6">
