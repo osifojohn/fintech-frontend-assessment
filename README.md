@@ -1,50 +1,159 @@
-# React + TypeScript + Vite
+# Fintech Frontend Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern fintech application built with React, TypeScript, and Redux Toolkit, focusing on loan management and transactions.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Testing](#testing)
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This frontend application provides a comprehensive interface for managing loans, transactions, and user data with a focus on performance and user experience.
 
-- Configure the top-level `parserOptions` property like this:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- React 18
+- TypeScript
+- Redux Toolkit
+- React Router DOM
+- Tailwind CSS
+- Jest & Testing Library
+- Vite
+
+## Project Structure
+
+```
+src/
+├── mocks/                      # Mock data and mock service implementations
+│   └── fileMocks.ts           # File mock configurations for testing
+├── tests/                      # Global test utilities and setup
+│   └── test-utils.tsx         # Common test utilities and render helpers
+├── assets/                     # Static assets (images, fonts, etc.)
+├── components/                 # Reusable UI components
+│   └── features/              # Feature-specific components
+│       ├── loans/             # Loan management related components
+│       │   ├── tests/         # Loan component tests
+│       │   ├── ActiveLoans.tsx    # Displays active loan information
+│       │   ├── LoanHistory.tsx    # Shows loan transaction history
+│       │   └── LoanRequestForm.tsx # Form for new loan requests
+│       ├── transactions/      # Transaction management components
+│       │   ├── tests/         # Transaction component tests
+│       │   ├── TransactionControls.tsx  # Transaction control buttons/actions
+│       │   ├── TransactionData.tsx      # Transaction data display
+│       │   └── TransactionTable.tsx     # Tabular view of transactions
+│       └── user/              # User-related components
+│           ├── tests/         # User component tests
+│           └── UserOverview.tsx # User profile information
+├── layouts/                    # Layout components and templates
+│   └── dashboard/             # Dashboard-specific layout
+│       ├── DashboardLayout.tsx # Main dashboard layout wrapper
+│       ├── Header.tsx         # Dashboard header component
+│       └── Sidebar.tsx        # Dashboard sidebar navigation
+├── lib/                       # Core utilities and constants
+│   ├── constants.ts          # Application constants
+│   └── utils.ts              # Utility functions
+├── pages/                     # Page components
+│   ├── dashboard/            # Dashboard pages
+│   │   └── index.tsx         # Main dashboard page
+│   └── NotFound.tsx          # 404 error page
+├── providers/                 # Context providers
+├── redux/                     # Redux state management
+│   ├── api/                  # API integration with Redux
+│   │   └── apiSlice.ts      # RTK Query API definitions
+│   ├── slices/              # Redux state slices
+│   └── store.ts             # Redux store configuration
+├── routes/                   # Route definitions and config
+├── services/                 # API services and external integrations
+├── types/                    # TypeScript type definitions
+├── App.tsx                   # Root application component
+├── main.tsx                  # Application entry point
+└── vite-env.d.ts            # Vite environment type declarations
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Getting Started
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Prerequisites
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+- Node.js (LTS version)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone [https://github.com/osifojohn/fintech-frontend-assessment.git]
+cd fintech-frontend-assessment
 ```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+### Available Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build       # Build for production (runs TypeScript build first)
+npm run lint        # Run ESLint
+npm run preview     # Preview production build
+npm run test        # Run tests
+npm run test:watch  # Run tests in watch mode
+npm run test:coverage # Generate test coverage report
+```
+
+## Testing
+
+The project uses Jest and React Testing Library for testing. Tests are co-located with their components in `tests` directories. To run tests:
+
+```bash
+# Run all tests
+npm test
+
+# Watch mode
+npm run test:watch
+
+# Coverage report
+npm run test:coverage
+```
+
+## Key Features
+
+- Dashboard
+  - Account overview
+  - Recent Transaction Table View
+- Loan Management
+  - Active Loans Overview
+  - Loan History
+  - Loan Request Form
+- Transaction Management
+  - Transaction Controls
+  - Transaction Table View
+  - Transaction Data Analysis
+
+## Project Architecture
+
+- Feature-based component organization
+- Redux Toolkit for state management
+- Centralized routing configuration
+- TypeScript for type safety
+- Comprehensive test coverage
+- Custom layouts for different views
+
+## **Author**
+
+[Osifo John](https://github.com/osifojohn)
+
+Feel free to explore, contribute, or raise issues!
