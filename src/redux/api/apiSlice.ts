@@ -1,5 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Loan, Transaction, TransactionStats, User } from '../../types';
+import {
+  ActiveLoan,
+  Loan,
+  Transaction,
+  TransactionStats,
+  User,
+} from '../../types';
+import { API_TAGS } from '../../lib/constants';
 
 export const api = createApi({
   reducerPath: 'api',
@@ -7,28 +14,30 @@ export const api = createApi({
     baseUrl:
       'https://my-json-server.typicode.com/osifojohn/fintech-core-server',
   }),
-  tagTypes: ['User', 'Transaction', 'Loan'],
+  tagTypes: Object.values(API_TAGS),
   endpoints: (builder) => ({
-    // ... existing endpoints ...
     getUser: builder.query<User, string>({
       query: (id) => `/users/${id}`,
-      providesTags: ['User'],
+      providesTags: [API_TAGS.USER],
     }),
 
     getTransactions: builder.query<Transaction[], void>({
       query: () => '/transactions',
-      providesTags: ['Transaction'],
+      providesTags: [API_TAGS.TRANSACTION],
     }),
 
     getLoanHistory: builder.query<Loan[], void>({
       query: () => '/loans',
-      providesTags: ['Loan'],
+      providesTags: [API_TAGS.LOAN],
+    }),
+    getActiveLoans: builder.query<ActiveLoan[], void>({
+      query: () => '/activeLoans',
+      providesTags: [API_TAGS.ACTIVE_LOAN],
     }),
 
-    // New transaction stats endpoint
     getTransactionStats: builder.query<TransactionStats, void>({
       query: () => '/transactionStats',
-      providesTags: ['Transaction'],
+      providesTags: [API_TAGS.TRANSACTION],
     }),
 
     createLoanRequest: builder.mutation<
@@ -53,18 +62,6 @@ export const api = createApi({
         }
       },
     }),
-
-    createTransaction: builder.mutation<
-      Transaction,
-      Omit<Transaction, 'id' | 'createdAt' | 'updatedAt'>
-    >({
-      query: (transactionData) => ({
-        url: '/transactions',
-        method: 'POST',
-        body: transactionData,
-      }),
-      invalidatesTags: ['Transaction'],
-    }),
   }),
 });
 
@@ -74,5 +71,5 @@ export const {
   useGetLoanHistoryQuery,
   useGetTransactionStatsQuery,
   useCreateLoanRequestMutation,
-  useCreateTransactionMutation,
+  useGetActiveLoansQuery,
 } = api;

@@ -12,7 +12,7 @@ const StatCard: React.FC<{
   <div className="bg-white rounded-lg shadow p-6">
     {loading ? (
       <div className="space-y-3">
-        <LoadingShimmerBlock className="h-4 w-24" />
+        <h3 className="text-sm font-medium text-gray-500">{title}</h3>
         <LoadingShimmerBlock className="h-8 w-32" />
       </div>
     ) : (

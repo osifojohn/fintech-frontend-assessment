@@ -1,6 +1,6 @@
-import { ActiveLoan } from '../../components/features/loans/ActiveLoan';
+import LoanRequestForm from '../../components/features/loans/LoanRequestForm';
+import { ActiveLoans } from '../../components/features/loans/ActiveLoans';
 import { LoanHistory } from '../../components/features/loans/LoanHistory';
-import { LoanRequestForm } from '../../components/features/loans/LoanRequestForm';
 
 const Loans = () => {
   return (
@@ -12,7 +12,7 @@ const Loans = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="space-y-6">
-            <ActiveLoan />
+            <ActiveLoans />
             <LoanHistory />
           </div>
 

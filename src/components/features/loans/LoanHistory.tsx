@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import { useGetLoanHistoryQuery } from '../../../redux/api/apiSlice';
 import { AlertCircle } from 'lucide-react';
+import { LoadingShimmerBlock } from '../../LoadingShimmerBlock';
 
 export const LoanHistory = () => {
   const {
@@ -42,12 +43,12 @@ export const LoanHistory = () => {
             <div key={index} className="border rounded-lg p-4">
               <div className="flex justify-between items-center">
                 <div className="space-y-2">
-                  <div className="h-5 w-32 bg-gray-200 animate-pulse rounded" />
-                  <div className="h-4 w-40 bg-gray-200 animate-pulse rounded" />
+                  <LoadingShimmerBlock className="h-5 w-32" />
+                  <LoadingShimmerBlock className="h-4 w-40" />
                 </div>
                 <div className="text-right space-y-2">
-                  <div className="h-6 w-20 bg-gray-200 animate-pulse rounded-full ml-auto" />
-                  <div className="h-4 w-24 bg-gray-200 animate-pulse rounded ml-auto" />
+                  <LoadingShimmerBlock className="h-6 w-20 ml-auto" />
+                  <LoadingShimmerBlock className="h-4 w-24 ml-auto" />
                 </div>
               </div>
             </div>

@@ -49,7 +49,7 @@ describe('TransactionTable', () => {
 
     const shimmerElements = container.querySelectorAll('.animate-pulse');
 
-    expect(shimmerElements).toHaveLength(6); // 3 cards × 2 shimmer blocks each
+    expect(shimmerElements).toHaveLength(3); // 3 cards × 1 shimmer blocks each
   });
 
   it('renders empty state when no transactions', () => {
