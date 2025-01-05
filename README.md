@@ -147,6 +147,7 @@ npm run test:coverage
 
 - Feature-based component organization
 - Redux Toolkit for state management
+- RTK Query for data fetching and caching
 - Centralized routing configuration
 - TypeScript for type safety
 - Comprehensive test coverage
