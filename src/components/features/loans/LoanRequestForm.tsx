@@ -107,7 +107,7 @@ const LoanRequestForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white rounded-lg shadow p-6 max-w-md mx-auto"
+      className="bg-white rounded-lg shadow p-6 max-w-3xl mx-auto"
     >
       <h2 className="text-xl font-semibold mb-6 text-gray-800">
         Request New Loan
