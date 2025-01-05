@@ -1,15 +1,5 @@
+import { Transaction } from '@/types';
 import React, { useState, useEffect } from 'react';
-
-type Transaction = {
-  id: string;
-  date: string;
-  amount: number;
-  type: 'credit' | 'debit';
-  description: string;
-  category: string;
-  createdAt: string;
-  updatedAt: string;
-};
 
 type Props = {
   transactions: Transaction[];

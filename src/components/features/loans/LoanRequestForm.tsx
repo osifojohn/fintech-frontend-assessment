@@ -5,6 +5,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useCreateLoanRequestMutation } from '../../../redux/api/apiSlice';
 import { toast } from 'sonner';
 import { ErrorResponse } from '@/types';
+import {
+  DAYS_IN_MONTH,
+  DEFAULT_INTEREST_RATE,
+  HOURS_IN_DAY,
+  MILLISECONDS_IN_SECOND,
+  MINUTES_IN_HOUR,
+  SECONDS_IN_MINUTE,
+} from '../../../lib/constants';
 
 const loanSchema = z.object({
   amount: z
@@ -68,9 +76,15 @@ const LoanRequestForm: React.FC = () => {
         status: 'pending' as const,
         startDate: new Date().toISOString(),
         endDate: new Date(
-          Date.now() + Number(data.tenure) * 30 * 24 * 60 * 60 * 1000
+          Date.now() +
+            Number(data.tenure) *
+              DAYS_IN_MONTH *
+              HOURS_IN_DAY *
+              MINUTES_IN_HOUR *
+              SECONDS_IN_MINUTE *
+              MILLISECONDS_IN_SECOND
         ).toISOString(),
-        interestRate: 8.5,
+        interestRate: DEFAULT_INTEREST_RATE,
       };
 
       await createLoan(payload).unwrap();

@@ -11,14 +11,15 @@ import { API_TAGS } from '../../lib/constants';
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
+    // Temporarily hardcoded; this value should ideally come from a .env file
     baseUrl:
       'https://my-json-server.typicode.com/osifojohn/fintech-core-server',
   }),
   tagTypes: Object.values(API_TAGS),
   endpoints: (builder) => ({
-    getUser: builder.query<User, string>({
-      query: (id) => `/users/${id}`,
-      providesTags: [API_TAGS.USER],
+    getUserAccountOverview: builder.query<User, string>({
+      query: (id) => `/userAccountOverview/${id}`,
+      providesTags: [API_TAGS.UserAccountOverview],
     }),
 
     getTransactions: builder.query<Transaction[], void>({
@@ -35,8 +36,8 @@ export const api = createApi({
       providesTags: [API_TAGS.ACTIVE_LOAN],
     }),
 
-    getTransactionStats: builder.query<TransactionStats, void>({
-      query: () => '/transactionStats',
+    getTransactionStats: builder.query<TransactionStats, string>({
+      query: (id) => `/transactionStats/${id}`,
       providesTags: [API_TAGS.TRANSACTION],
     }),
 
@@ -66,7 +67,7 @@ export const api = createApi({
 });
 
 export const {
-  useGetUserQuery,
+  useGetUserAccountOverviewQuery,
   useGetTransactionsQuery,
   useGetLoanHistoryQuery,
   useGetTransactionStatsQuery,

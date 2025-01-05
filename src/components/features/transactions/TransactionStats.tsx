@@ -26,13 +26,14 @@ const StatCard: React.FC<{
   </div>
 );
 
+const USER_ID = '1';
 export const TransactionStats: React.FC = () => {
   const {
     data: stats,
     isLoading,
     error,
     refetch,
-  } = useGetTransactionStatsQuery();
+  } = useGetTransactionStatsQuery(USER_ID);
 
   if (error) {
     return (

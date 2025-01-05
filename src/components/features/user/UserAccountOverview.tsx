@@ -1,28 +1,30 @@
 import React from 'react';
-import { useGetUserQuery } from '../../../redux/api/apiSlice';
+import { useGetUserAccountOverviewQuery } from '../../../redux/api/apiSlice';
 import { LoadingShimmerBlock } from '../../LoadingShimmerBlock';
 import { AlertCircle } from 'lucide-react';
 
-export const UserOverview: React.FC = () => {
+const USER_ID = '1';
+
+export const UserAccountOverview: React.FC = () => {
   const {
-    data: user,
+    data: accountOverview,
     isLoading,
     isFetching,
     error,
     refetch,
-  } = useGetUserQuery('1');
+  } = useGetUserAccountOverviewQuery(USER_ID);
 
   if (isLoading || isFetching) {
     return (
       <div className="bg-white rounded-lg shadow-lg p-6">
         <div className="flex items-center justify-between mb-6">
           <div className="space-y-3">
-            <LoadingShimmerBlock className="h-8 w-48" />
-            <LoadingShimmerBlock className="h-4 w-32" />
+            <LoadingShimmerBlock className="h-8 w-20 md:w-48" />
+            <LoadingShimmerBlock className="h-4 w-20 md:w-32" />
           </div>
           <div className="text-right space-y-2">
-            <LoadingShimmerBlock className="h-4 w-28 ml-auto" />
-            <LoadingShimmerBlock className="h-10 w-36 ml-auto" />
+            <LoadingShimmerBlock className="h-4 w-16 md:w-28 ml-auto" />
+            <LoadingShimmerBlock className="h-10 w-28 md:w-36 ml-auto" />
           </div>
         </div>
       </div>
@@ -55,13 +57,15 @@ export const UserOverview: React.FC = () => {
     <div className="bg-white rounded-lg shadow-lg p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800">{user?.name}</h2>
-          <p className="text-gray-600">{user?.accountNumber}</p>
+          <h2 className="text-2xl font-bold text-gray-800">
+            {accountOverview?.name}
+          </h2>
+          <p className="text-gray-600">{accountOverview?.accountNumber}</p>
         </div>
         <div className="text-right">
           <p className="text-sm text-gray-600">Available Balance</p>
           <p className="text-3xl font-bold text-green-600">
-            ${user?.accountBalance.toLocaleString()}
+            ${accountOverview?.accountBalance.toLocaleString()}
           </p>
         </div>
       </div>

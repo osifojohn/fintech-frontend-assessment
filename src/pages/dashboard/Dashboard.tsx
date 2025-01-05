@@ -1,4 +1,4 @@
-import { UserOverview } from '../../components/features/user/UserOverview';
+import { UserAccountOverview } from '../../components/features/user/UserAccountOverview';
 import { TransactionTable } from '../../components/features/transactions/TransactionTable';
 
 export default function Dashboard() {
@@ -8,7 +8,7 @@ export default function Dashboard() {
         <h2 className="text-2xl  font-bold text-gray-900 mb-2">
           Account overview
         </h2>
-        <UserOverview />
+        <UserAccountOverview />
       </div>
 
       <div>

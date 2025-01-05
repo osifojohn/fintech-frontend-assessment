@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { useGetUserQuery } from '@/redux/api/apiSlice';
+import { useGetUserAccountOverviewQuery } from '@/redux/api/apiSlice';
 
-import { UserOverview } from '../UserOverview';
+import { UserAccountOverview } from '../UserAccountOverview';
 
 jest.mock('../../../../redux/api/apiSlice');
 
@@ -9,20 +9,20 @@ jest.mock('../../../LoadingShimmerBlock', () => ({
   LoadingShimmerBlock: () => <div data-testid="loading-shimmer" />,
 }));
 
-describe('UserOverview', () => {
+describe('UserAccountOverview', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it('shows loading state when fetching data', () => {
-    (useGetUserQuery as jest.Mock).mockReturnValue({
+    (useGetUserAccountOverviewQuery as jest.Mock).mockReturnValue({
       isLoading: true,
       isFetching: false,
       error: null,
       data: null,
     });
 
-    render(<UserOverview />);
+    render(<UserAccountOverview />);
 
     expect(screen.getAllByTestId('loading-shimmer')).toHaveLength(4);
   });
@@ -30,14 +30,14 @@ describe('UserOverview', () => {
   it('shows error state with retry button when API call fails', () => {
     const mockRefetch = jest.fn();
 
-    (useGetUserQuery as jest.Mock).mockReturnValue({
+    (useGetUserAccountOverviewQuery as jest.Mock).mockReturnValue({
       isLoading: false,
       isFetching: false,
       error: { status: 500, data: 'Error fetching user' },
       refetch: mockRefetch,
     });
 
-    render(<UserOverview />);
+    render(<UserAccountOverview />);
 
     expect(
       screen.getByText('Unable to load account information')
@@ -58,17 +58,15 @@ describe('UserOverview', () => {
       accountBalance: 50000,
     };
 
-    // Mock the hook to return success state with data
-    (useGetUserQuery as jest.Mock).mockReturnValue({
+    (useGetUserAccountOverviewQuery as jest.Mock).mockReturnValue({
       isLoading: false,
       isFetching: false,
       error: null,
       data: mockUser,
     });
 
-    render(<UserOverview />);
+    render(<UserAccountOverview />);
 
-    // Verify user information is displayed correctly
     expect(screen.getByText('John Doe')).toBeInTheDocument();
     expect(screen.getByText('1234567890')).toBeInTheDocument();
     expect(screen.getByText('$50,000')).toBeInTheDocument();
@@ -76,17 +74,15 @@ describe('UserOverview', () => {
   });
 
   it('shows loading state when refetching data', () => {
-    // Mock the hook to return fetching state
-    (useGetUserQuery as jest.Mock).mockReturnValue({
+    (useGetUserAccountOverviewQuery as jest.Mock).mockReturnValue({
       isLoading: false,
       isFetching: true,
       error: null,
       data: null,
     });
 
-    render(<UserOverview />);
+    render(<UserAccountOverview />);
 
-    // Verify loading shimmer blocks are displayed
     expect(screen.getAllByTestId('loading-shimmer')).toHaveLength(4);
   });
 });
