@@ -25,7 +25,7 @@ export const ActiveLoans = () => {
   if (isLoading || isFetching) {
     return (
       <div className="space-y-6">
-        <h1 className="text-2xl font-bold">Active Loans</h1>
+        <h2 className="text-xl font-bold">Active Loans</h2>
         <div className="space-y-4">
           {Array.from({ length: 2 }).map((_, index) => (
             <div
@@ -54,7 +54,7 @@ export const ActiveLoans = () => {
   if (error) {
     return (
       <div className="space-y-6">
-        <h1 className="text-2xl font-bold">Active Loans</h1>
+        <h2 className="text-xl font-bold">Active Loans</h2>
         <div className="bg-red-50 border-l-4 border-red-500 p-4">
           <div className="flex items-center">
             <AlertTriangle className="h-5 w-5 text-red-500" />
@@ -80,7 +80,7 @@ export const ActiveLoans = () => {
   if (!activeLoans.length) {
     return (
       <div className="space-y-6">
-        <h1 className="text-2xl font-bold">Active Loans</h1>
+        <h2 className="text-xl font-bold">Active Loans</h2>
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex flex-col items-center justify-center h-48">
             <p className="text-gray-500 text-lg">No active loans found</p>
@@ -96,7 +96,7 @@ export const ActiveLoans = () => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Active Loans</h1>
+        <h2 className="text-xl font-bold">Active Loans</h2>
         <button
           onClick={() => refetch()}
           disabled={isFetching}

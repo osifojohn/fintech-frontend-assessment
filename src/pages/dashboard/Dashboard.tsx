@@ -7,14 +7,14 @@ export default function Dashboard() {
       <h1 className="text-2xl mb-14 font-bold text-gray-900">User Overview</h1>
 
       <div>
-        <h2 className="text-2xl  font-bold text-gray-900 mb-2">
+        <h2 className="text-xl  font-bold text-gray-900 mb-2">
           Account overview
         </h2>
         <UserAccountOverview />
       </div>
 
       <div>
-        <h2 className="text-2xl  font-bold text-gray-900 mb-4">
+        <h2 className="text-xl  font-bold text-gray-900 mb-4">
           Recent Transactions
         </h2>
         <TransactionTable />

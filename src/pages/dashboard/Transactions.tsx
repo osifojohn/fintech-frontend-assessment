@@ -9,14 +9,14 @@ const Transactions = () => {
       </h1>
 
       <div className="mb-14">
-        <h2 className="text-2xl  font-bold text-gray-900 mb-2">
+        <h2 className="text-xl  font-bold text-gray-900 mb-2">
           Transactions overview
         </h2>
         <TransactionStats />
       </div>
 
       <div>
-        <h2 className="text-2xl  font-bold text-gray-900 mb-4">
+        <h2 className="text-xl  font-bold text-gray-900 mb-4">
           All Transactions
         </h2>
         <TransactionTable />
