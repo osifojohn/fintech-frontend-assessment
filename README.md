@@ -9,6 +9,8 @@ A modern fintech application built with React, TypeScript, and Redux Toolkit, fo
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
 - [Testing](#testing)
+- [Approach](#approach)
+- [Data Source](#data-source)
 
 ## Overview
 
@@ -49,7 +51,7 @@ src/
 │       │   └── TransactionTable.tsx     # Tabular view of transactions
 │       └── user/              # User-related components
 │           ├── tests/         # User component tests
-│           └── UserOverview.tsx # User profile information
+│           └── UserAccountOverview.tsx # Account overview information
 ├── layouts/                    # Layout components and templates
 │   └── dashboard/             # Dashboard-specific layout
 │       ├── DashboardLayout.tsx # Main dashboard layout wrapper
@@ -69,7 +71,6 @@ src/
 │   ├── slices/              # Redux state slices
 │   └── store.ts             # Redux store configuration
 ├── routes/                   # Route definitions and config
-├── services/                 # API services and external integrations
 ├── types/                    # TypeScript type definitions
 ├── App.tsx                   # Root application component
 ├── main.tsx                  # Application entry point
@@ -130,6 +131,43 @@ npm run test:watch
 # Coverage report
 npm run test:coverage
 ```
+
+## Approach
+
+The application follows these key architectural and development principles:
+
+1. **Component Organization**
+
+   - Feature-based architecture for better scalability
+   - Shared components for consistent UI/UX
+   - Co-located tests with components
+
+2. **State Management**
+
+   - Redux Toolkit for global state
+   - RTK Query for efficient data fetching and caching
+   - Local state for component-specific data
+
+3. **Code Quality**
+   - TypeScript for type safety
+   - Comprehensive test coverage
+   - ESLint and Prettier for code consistency
+
+## Data Source
+
+The application utilizes [My JSON Server](https://my-json-server.typicode.com) (JSONPlaceholder) as a mock REST API for development and testing. Below are the relevant endpoints:
+
+- **Database Endpoint**:  
+  [`https://my-json-server.typicode.com/osifojohn/fintech-core-server/db`](https://my-json-server.typicode.com/osifojohn/fintech-core-server/db)
+
+- **API Documentation**:  
+  [`https://my-json-server.typicode.com/osifojohn/fintech-core-server`](https://my-json-server.typicode.com/osifojohn/fintech-core-server)
+
+The mock API provides endpoints for:
+
+- Transaction history
+- Loan information
+- Account details
 
 ## Key Features
 
