@@ -27,6 +27,8 @@ This frontend application provides a comprehensive interface for managing loans,
 ## Project Structure
 
 ```
+├──coverage                   # test coverage report
+├──public
 src/
 ├── mocks/                      # Mock data and mock service implementations
 │   └── fileMocks.ts           # File mock configurations for testing
