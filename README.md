@@ -1,6 +1,6 @@
-# Fintech Frontend Assessment
+# Fintech Frontend
 
-A modern fintech application built with React, TypeScript, and Redux Toolkit, focusing on loan management and transactions.
+A modern fintech application built with React, TypeScript, and Redux Toolkit, focusing on loan management and transactions, completed in less than three days
 
 ## Table of Contents
 
